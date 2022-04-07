@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kantin_online/constant.dart';
-import 'package:kantin_online/screens/home/sign_up_screen.dart';
+import 'package:kantin_online/screens/sign_up_screen.dart';
 import 'package:kantin_online/screens/sign_in_screeen.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
+        statusBarColor: backgroundColor,
         statusBarIconBrightness: Brightness.dark,
         statusBarBrightness: Brightness.dark,
         systemNavigationBarColor: backgroundColor,
