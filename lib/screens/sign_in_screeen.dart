@@ -102,6 +102,7 @@ class SignIn extends StatelessWidget {
           hintStyle: primaryText.copyWith(
             color: const Color(0xff8A8A8A),
             letterSpacing: 2,
+            fontSize: 14,
           ),
         ),
       ),
@@ -126,9 +127,7 @@ class SignIn extends StatelessWidget {
         decoration: InputDecoration.collapsed(
           hintText: 'Password',
           hintStyle: primaryText.copyWith(
-            color: const Color(0xff8A8A8A),
-            letterSpacing: 2,
-          ),
+              color: const Color(0xff8A8A8A), letterSpacing: 2, fontSize: 14),
         ),
       ),
     );
@@ -143,7 +142,7 @@ class SignIn extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Atau daftar dengan',
+            'Atau masuk dengan',
             style: primaryText.copyWith(
               color: const Color(0xff8A8A8A),
             ),
