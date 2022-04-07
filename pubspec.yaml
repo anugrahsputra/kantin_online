@@ -33,7 +33,7 @@ dependencies:
   flutter_svg: ^1.0.3
   google_fonts: ^2.3.1
   provider: ^6.0.2
-  flutter_native_splash: ^2.1.2+1
+  
 
 dev_dependencies:
 
@@ -42,6 +42,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
+  flutter_native_splash: ^2.1.2+1
   flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter
@@ -51,6 +52,7 @@ flutter_native_splash:
 
   android: true
   ios: true
+  web: false
 
   color: "#F5F5F5"
   #background_image: "assets/background.png"
