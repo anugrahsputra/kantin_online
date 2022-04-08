@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kantin_online/constant.dart';
+import 'package:kantin_online/providers/page_provider.dart';
 import 'package:kantin_online/screens/mainscreen.dart';
 import 'package:kantin_online/screens/sign_up_screen.dart';
 import 'package:kantin_online/screens/sign_in_screeen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,13 +26,20 @@ class MyApp extends StatelessWidget {
       ),
     );
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      routes: {
-        '/': (context) => const SignIn(),
-        '/sign-up': (context) => const SignUp(),
-        '/home': (context) => const Mainscreen(),
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => PageProvier(),
+        )
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        routes: {
+          '/': (context) => const SignIn(),
+          '/sign-up': (context) => const SignUp(),
+          '/home': (context) => const Mainscreen(),
+        },
+      ),
     );
   }
 }
