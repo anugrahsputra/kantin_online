@@ -11,7 +11,7 @@ class Userscreen extends StatelessWidget {
       backgroundColor: backgroundColor,
       body: Center(
         child: Text(
-          'homescreen',
+          'userscreen',
         ),
       ),
     );
