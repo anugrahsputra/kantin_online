@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kantin_online/constant.dart';
+import 'package:kantin_online/screens/mainscreen.dart';
 import 'package:kantin_online/screens/sign_up_screen.dart';
 import 'package:kantin_online/screens/sign_in_screeen.dart';
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SignIn(),
         '/sign-up': (context) => const SignUp(),
+        '/home': (context) => const Mainscreen(),
       },
     );
   }
