@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../constant.dart';
 
@@ -97,6 +98,7 @@ class SignIn extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration.collapsed(
           hintText: 'Alamat Email',
           hintStyle: primaryText.copyWith(
@@ -165,8 +167,8 @@ class SignIn extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Image.asset(
-                    'assets/icons/google_logo_color.png',
+                  SvgPicture.asset(
+                    'assets/icons/icons8-google.svg',
                     height: 26,
                   ),
                   const SizedBox(

@@ -1,14 +1,15 @@
 // ignore_for_file: dead_code
 
 import 'package:flutter/material.dart';
-import 'package:kantin_online/providers/page_provider.dart';
-import 'package:kantin_online/screens/home/cartscreen.dart';
-import 'package:kantin_online/screens/home/homescreen.dart';
-import 'package:kantin_online/screens/home/searchscreen.dart';
-import 'package:kantin_online/screens/home/userscreen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import '../constant.dart';
+import '../providers/page_provider.dart';
+import 'home/cartscreen.dart';
+import 'home/homescreen.dart';
+import 'home/searchscreen.dart';
+import 'home/userscreen.dart';
 
 class Mainscreen extends StatefulWidget {
   const Mainscreen({Key? key}) : super(key: key);
@@ -37,48 +38,48 @@ class _MainscreenState extends State<Mainscreen> {
             items: [
               BottomNavigationBarItem(
                 icon: pageProvier.currentIndex == 0
-                    ? Image.asset(
-                        'assets/icons/home.png',
+                    ? SvgPicture.asset(
+                        'assets/icons/home.svg',
                         width: 24,
                       )
-                    : Image.asset(
-                        'assets/icons/home_notactive.png',
+                    : SvgPicture.asset(
+                        'assets/icons/home_notactive.svg',
                         width: 24,
                       ),
                 label: '',
               ),
               BottomNavigationBarItem(
                 icon: pageProvier.currentIndex == 1
-                    ? Image.asset(
-                        'assets/icons/search.png',
+                    ? SvgPicture.asset(
+                        'assets/icons/search.svg',
                         width: 24,
                       )
-                    : Image.asset(
-                        'assets/icons/search_notactive.png',
+                    : SvgPicture.asset(
+                        'assets/icons/search_notactive.svg',
                         width: 24,
                       ),
                 label: '',
               ),
               BottomNavigationBarItem(
                 icon: pageProvier.currentIndex == 2
-                    ? Image.asset(
-                        'assets/icons/cart.png',
+                    ? SvgPicture.asset(
+                        'assets/icons/cart.svg',
                         width: 24,
                       )
-                    : Image.asset(
-                        'assets/icons/cart_notactive.png',
+                    : SvgPicture.asset(
+                        'assets/icons/cart_notactive.svg',
                         width: 24,
                       ),
                 label: '',
               ),
               BottomNavigationBarItem(
                 icon: pageProvier.currentIndex == 3
-                    ? Image.asset(
-                        'assets/icons/user.png',
+                    ? SvgPicture.asset(
+                        'assets/icons/user.svg',
                         width: 24,
                       )
-                    : Image.asset(
-                        'assets/icons/user_notactive.png',
+                    : SvgPicture.asset(
+                        'assets/icons/user_notactive.svg',
                         width: 24,
                       ),
                 label: '',

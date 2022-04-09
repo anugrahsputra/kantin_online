@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kantin_online/constant.dart';
 
 class SignUp extends StatelessWidget {
@@ -18,7 +20,7 @@ class SignUp extends StatelessWidget {
           emailInput(),
           passwordInput(),
           googleSignIn(),
-          SizedBox(height: height * 0.06),
+          SizedBox(height: height * 0.10),
           signInButton(context),
         ],
       ),
@@ -67,7 +69,7 @@ class SignUp extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () => Navigator.pushNamed(context, '/'),
+                onTap: () => Navigator.pop(context),
                 child: Text(
                   'Masuk Sekarang!',
                   style: primaryText.copyWith(
@@ -98,6 +100,7 @@ class SignUp extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: TextFormField(
+        keyboardType: TextInputType.text,
         decoration: InputDecoration.collapsed(
           hintText: 'Nama Lengkap',
           hintStyle: primaryText.copyWith(
@@ -124,6 +127,8 @@ class SignUp extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: TextFormField(
+        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+        keyboardType: TextInputType.phone,
         decoration: InputDecoration.collapsed(
           hintText: 'Nomor WhatsApp',
           hintStyle: primaryText.copyWith(
@@ -150,6 +155,7 @@ class SignUp extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration.collapsed(
           hintText: 'Alamat Email',
           hintStyle: primaryText.copyWith(
@@ -218,8 +224,8 @@ class SignUp extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Image.asset(
-                    'assets/icons/google_logo_color.png',
+                  SvgPicture.asset(
+                    'assets/icons/icons8-google.svg',
                     height: 26,
                   ),
                   const SizedBox(
