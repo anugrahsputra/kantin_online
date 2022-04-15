@@ -1,8 +1,12 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
+import 'package:kantin_online/widget/terlaris_card.dart';
 
 import '../../constant.dart';
 import '../../widget/carousel_image.dart';
 import '../../widget/category.dart';
+import '../../widget/terbaru_card.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({Key? key}) : super(key: key);
@@ -78,11 +82,101 @@ class Homescreen extends StatelessWidget {
       );
     }
 
+    Widget productTerlarisTitle() {
+      return Container(
+        margin: const EdgeInsets.only(
+          left: defaultMargin2,
+          right: defaultMargin2,
+          top: 15,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Terlaris',
+              style: primaryText.copyWith(fontWeight: semiBold, fontSize: 13),
+            ),
+            InkWell(
+              onTap: () {},
+              child: Text(
+                'Lihat Semua',
+                style: primaryText.copyWith(fontWeight: semiBold, fontSize: 11),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget productTerlaris() {
+      return Container(
+        height: 160,
+        child: ListView.separated(
+          padding: const EdgeInsets.only(left: 35, right: 35, top: 13),
+          scrollDirection: Axis.horizontal,
+          itemCount: 5,
+          separatorBuilder: (context, _) => const SizedBox(
+            width: 15,
+          ),
+          itemBuilder: (context, index) {
+            return const TerlarisCard();
+          },
+        ),
+      );
+    }
+
+    Widget productTerbaruTitle() {
+      return Container(
+        margin: const EdgeInsets.only(
+          left: defaultMargin2,
+          right: defaultMargin2,
+          top: 15,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Terbaru',
+              style: primaryText.copyWith(fontWeight: semiBold, fontSize: 13),
+            ),
+            InkWell(
+              onTap: () {},
+              child: Text(
+                'Lihat Semua',
+                style: primaryText.copyWith(fontWeight: semiBold, fontSize: 11),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget productTerbaru() {
+      return Container(
+        height: 160,
+        child: ListView.separated(
+          padding: const EdgeInsets.only(left: 35, right: 35, top: 13),
+          scrollDirection: Axis.horizontal,
+          itemCount: 5,
+          separatorBuilder: (context, _) => const SizedBox(
+            width: 15,
+          ),
+          itemBuilder: (context, index) {
+            return const TerbaruCard();
+          },
+        ),
+      );
+    }
+
     return ListView(
       children: [
         header(),
         const CarouselImage(),
         categories(),
+        productTerlarisTitle(),
+        productTerlaris(),
+        productTerbaruTitle(),
+        productTerbaru()
       ],
     );
   }
