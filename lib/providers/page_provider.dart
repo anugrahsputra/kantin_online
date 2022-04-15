@@ -6,7 +6,6 @@ class PageProvier with ChangeNotifier {
   int get currentIndex => _currentIndex;
 
   set currentIndex(int index) {
-    print(currentIndex);
     _currentIndex = index;
     notifyListeners();
   }
