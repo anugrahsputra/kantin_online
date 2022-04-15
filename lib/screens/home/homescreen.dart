@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../constant.dart';
 import '../../widget/carousel_image.dart';
+import '../../widget/category.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({Key? key}) : super(key: key);
@@ -50,10 +51,38 @@ class Homescreen extends StatelessWidget {
       );
     }
 
+    Widget categories() {
+      return Container(
+        margin: const EdgeInsets.only(
+          top: defaultMargin2,
+          right: defaultMargin2,
+          left: defaultMargin2,
+        ),
+        padding: const EdgeInsets.only(bottom: defaultPadding1),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Kategori',
+              style: primaryText.copyWith(
+                fontSize: 13,
+                fontWeight: semiBold,
+              ),
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            const Category()
+          ],
+        ),
+      );
+    }
+
     return ListView(
       children: [
         header(),
         const CarouselImage(),
+        categories(),
       ],
     );
   }
