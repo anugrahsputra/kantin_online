@@ -1,12 +1,12 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
-import 'package:kantin_online/widget/terlaris_card.dart';
 
 import '../../constant.dart';
 import '../../widget/carousel_image.dart';
 import '../../widget/category.dart';
 import '../../widget/terbaru_card.dart';
+import '../../widget/terlaris_card.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({Key? key}) : super(key: key);
@@ -97,7 +97,9 @@ class Homescreen extends StatelessWidget {
               style: primaryText.copyWith(fontWeight: semiBold, fontSize: 13),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/trend-product');
+              },
               child: Text(
                 'Lihat Semua',
                 style: primaryText.copyWith(fontWeight: semiBold, fontSize: 11),
@@ -140,7 +142,9 @@ class Homescreen extends StatelessWidget {
               style: primaryText.copyWith(fontWeight: semiBold, fontSize: 13),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/new-product');
+              },
               child: Text(
                 'Lihat Semua',
                 style: primaryText.copyWith(fontWeight: semiBold, fontSize: 11),
@@ -176,7 +180,10 @@ class Homescreen extends StatelessWidget {
         productTerlarisTitle(),
         productTerlaris(),
         productTerbaruTitle(),
-        productTerbaru()
+        productTerbaru(),
+        const SizedBox(
+          height: 15,
+        )
       ],
     );
   }

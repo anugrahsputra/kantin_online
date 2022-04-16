@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:kantin_online/constant.dart';
-import 'package:kantin_online/providers/page_provider.dart';
-import 'package:kantin_online/screens/mainscreen.dart';
-import 'package:kantin_online/screens/sign_up_screen.dart';
-import 'package:kantin_online/screens/sign_in_screeen.dart';
 import 'package:provider/provider.dart';
+
+import 'constant.dart';
+import 'providers/page_provider.dart';
+import 'screens/mainscreen.dart';
+import 'screens/newproducts_screen.dart';
+import 'screens/sign_in_screeen.dart';
+import 'screens/sign_up_screen.dart';
+import 'screens/trendproducts_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,6 +41,8 @@ class MyApp extends StatelessWidget {
           '/': (context) => const SignIn(),
           '/sign-up': (context) => const SignUp(),
           '/home': (context) => const Mainscreen(),
+          '/new-product': (context) => const NewProducts(),
+          '/trend-product': (context) => const TrendProducts()
         },
       ),
     );
