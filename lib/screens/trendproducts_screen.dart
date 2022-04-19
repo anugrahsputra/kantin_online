@@ -66,14 +66,15 @@ class TrendProducts extends StatelessWidget {
     }
 
     Widget trendProduct() {
+      // ignore: sized_box_for_whitespace
       return Container(
-        margin: const EdgeInsets.only(
-          left: defaultMargin1,
-          right: defaultMargin1,
-        ),
         height: MediaQuery.of(context).size.height,
         child: GridView.builder(
-          padding: const EdgeInsets.only(top: 15),
+          padding: const EdgeInsets.only(
+            top: 15,
+            left: defaultMargin1,
+            right: defaultMargin1,
+          ),
           physics: const NeverScrollableScrollPhysics(),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
