@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kantin_online/screens/trendproducts_screen.dart';
 
 import '../../constant.dart';
+import '../../widget/cart_card.dart';
+import '../trendproducts_screen.dart';
 
 class Cartscreen extends StatelessWidget {
   const Cartscreen({Key? key}) : super(key: key);
@@ -26,7 +27,11 @@ class Cartscreen extends StatelessWidget {
 
     Widget cartCount() {
       return Container(
-        margin: const EdgeInsets.symmetric(horizontal: defaultMargin1),
+        margin: const EdgeInsets.only(
+          left: defaultMargin1,
+          right: defaultMargin1,
+          bottom: defaultMargin2,
+        ),
         padding: const EdgeInsets.only(left: defaultPadding1),
         width: MediaQuery.of(context).size.width,
         height: 52,
@@ -130,7 +135,8 @@ class Cartscreen extends StatelessWidget {
       children: [
         title(),
         cartCount(),
-        emptyCart(),
+        // emptyCart(),
+        const CartCard(),
       ],
     );
   }
