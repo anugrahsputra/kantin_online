@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -57,29 +58,27 @@ class SignUp extends StatelessWidget {
           const SizedBox(
             height: defaultMargin2,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Belum Punya Akun? ',
-                style: primaryText.copyWith(
-                  color: color5,
-                  fontWeight: medium,
-                  fontSize: 12,
-                ),
+          RichText(
+            text: TextSpan(
+              text: 'Sudah Punya Akun?',
+              style: primaryText.copyWith(
+                color: color5,
+                fontWeight: medium,
+                fontSize: 12,
               ),
-              GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: Text(
-                  'Masuk Sekarang!',
+              children: [
+                TextSpan(
+                  text: ' Masuk Sekarang!',
                   style: primaryText.copyWith(
                     color: blueColor1,
                     fontWeight: medium,
                     fontSize: 12,
                   ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () => Navigator.pop(context),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
