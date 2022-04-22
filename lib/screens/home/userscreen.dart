@@ -134,6 +134,96 @@ class Userscreen extends StatelessWidget {
       );
     }
 
+    Widget general() {
+      return Container(
+        margin: const EdgeInsets.only(
+          left: defaultMargin2,
+          right: defaultMargin2,
+          top: defaultMargin2,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'General',
+              style: primaryText.copyWith(
+                fontSize: 14,
+                fontWeight: semiBold,
+              ),
+            ),
+            const SizedBox(
+              height: 7,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 136,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(
+                  color: const Color(0xffE2E2E2),
+                ),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      margin: const EdgeInsets.only(
+                          left: defaultMargin1, top: 13, bottom: 13),
+                      child: Text(
+                        'Kebijakan Privasi',
+                        style: primaryText.copyWith(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Divider(
+                    color: Color(0xffE2E2E2),
+                    height: 1,
+                    thickness: 1,
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: defaultMargin1, vertical: 13),
+                      child: Text(
+                        'Tentang Kami',
+                        style: primaryText.copyWith(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Divider(
+                    color: Color(0xffE2E2E2),
+                    height: 1,
+                    thickness: 1,
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: defaultMargin1, vertical: 13),
+                      child: Text(
+                        'Hubungi Kami',
+                        style: primaryText.copyWith(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SafeArea(
@@ -141,6 +231,7 @@ class Userscreen extends StatelessWidget {
           children: [
             header(),
             akun(),
+            general(),
           ],
         ),
       ),
