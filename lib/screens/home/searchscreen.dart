@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constant.dart';
+import '../../widget/search_result_card.dart';
 
 class Searchscreen extends StatelessWidget {
   const Searchscreen({Key? key}) : super(key: key);
@@ -84,9 +85,9 @@ class Searchscreen extends StatelessWidget {
 
     Widget searchResult() {
       return Container(
-        margin: const EdgeInsets.symmetric(
-          horizontal: defaultMargin1,
-          vertical: defaultMargin1,
+        margin: const EdgeInsets.only(
+          left: defaultMargin1,
+          top: defaultMargin1,
         ),
         child: Text(
           'Hasil pencarian',
@@ -106,6 +107,7 @@ class Searchscreen extends StatelessWidget {
           searchBox(),
           // mostSearched(),
           searchResult(),
+          const ResultCard(),
         ],
       ),
     );
