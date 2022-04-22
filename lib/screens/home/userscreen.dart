@@ -72,6 +72,13 @@ class Userscreen extends StatelessWidget {
                 border: Border.all(
                   color: const Color(0xffE2E2E2),
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.10),
+                    blurRadius: 4.0,
+                    offset: const Offset(0, 1),
+                  ),
+                ],
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
@@ -162,6 +169,13 @@ class Userscreen extends StatelessWidget {
                 border: Border.all(
                   color: const Color(0xffE2E2E2),
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.10),
+                    blurRadius: 4.0,
+                    offset: const Offset(0, 1),
+                  ),
+                ],
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Column(
