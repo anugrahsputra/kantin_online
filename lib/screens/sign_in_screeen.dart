@@ -9,17 +9,17 @@ class SignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: backgroundColor,
-      body: ListView(
+      body: Column(
         children: [
           logo(),
           header(context),
           emailInput(),
           passwordInput(),
           googleSignIn(),
-          SizedBox(height: height * 0.11),
+          // SizedBox(height: height * 0.11),
+          const Spacer(),
           signInButton(context),
         ],
       ),
@@ -197,6 +197,7 @@ class SignIn extends StatelessWidget {
         top: 41,
         left: defaultMargin1,
         right: defaultMargin1,
+        bottom: defaultMargin1,
       ),
       child: TextButton(
         onPressed: () {
