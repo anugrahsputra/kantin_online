@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // color pallete
+const barColor = Color.fromARGB(255, 230, 230, 230);
 const backgroundColor = Color(0xffF5F5F5);
 const blueColor1 = Color(0xff2199BE);
 const blueColor2 = Color(0xff149DC8);
