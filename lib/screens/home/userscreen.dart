@@ -65,8 +65,7 @@ class Userscreen extends StatelessWidget {
               height: 7,
             ),
             Container(
-              width: MediaQuery.of(context).size.width,
-              height: 136,
+              width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(
@@ -88,7 +87,10 @@ class Userscreen extends StatelessWidget {
                     onTap: () {},
                     child: Container(
                       margin: const EdgeInsets.only(
-                          left: defaultMargin1, top: 13, bottom: 13),
+                        left: defaultMargin1,
+                        top: 13,
+                        bottom: 13,
+                      ),
                       child: Text(
                         'Edit Profil',
                         style: primaryText.copyWith(
@@ -162,8 +164,7 @@ class Userscreen extends StatelessWidget {
               height: 7,
             ),
             Container(
-              width: MediaQuery.of(context).size.width,
-              height: 136,
+              width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(
@@ -184,8 +185,12 @@ class Userscreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                      margin: const EdgeInsets.only(
-                          left: defaultMargin1, top: 13, bottom: 13),
+                      padding: const EdgeInsets.only(
+                        left: defaultMargin1,
+                        top: 13,
+                        bottom: 13,
+                      ),
+                      width: MediaQuery.of(context).size.height,
                       child: Text(
                         'Kebijakan Privasi',
                         style: primaryText.copyWith(
@@ -202,8 +207,12 @@ class Userscreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: defaultMargin1, vertical: 13),
+                      padding: const EdgeInsets.only(
+                        left: defaultMargin1,
+                        top: 13,
+                        bottom: 13,
+                      ),
+                      width: MediaQuery.of(context).size.height,
                       child: Text(
                         'Tentang Kami',
                         style: primaryText.copyWith(
@@ -220,8 +229,12 @@ class Userscreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: defaultMargin1, vertical: 13),
+                      padding: const EdgeInsets.only(
+                        left: defaultMargin1,
+                        top: 13,
+                        bottom: 13,
+                      ),
+                      width: MediaQuery.of(context).size.height,
                       child: Text(
                         'Hubungi Kami',
                         style: primaryText.copyWith(
