@@ -254,6 +254,7 @@ class SignUp extends StatelessWidget {
         top: 41,
         left: defaultMargin1,
         right: defaultMargin1,
+        bottom: defaultMargin1,
       ),
       child: TextButton(
         onPressed: () {
