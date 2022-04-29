@@ -120,6 +120,7 @@ class CartCard extends StatelessWidget {
                         fontSize: 10,
                         fontWeight: medium,
                       ),
+                      textAlign: TextAlign.left,
                     ),
                     Text(
                       'Rp. 20.000',
@@ -127,6 +128,7 @@ class CartCard extends StatelessWidget {
                         fontSize: 12,
                         fontWeight: medium,
                       ),
+                      textAlign: TextAlign.start,
                     ),
                   ],
                 ),
