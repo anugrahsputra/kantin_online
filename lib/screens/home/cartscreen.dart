@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../constant.dart';
-import '../../widget/cart_card.dart';
 import '../trendproducts_screen.dart';
 
 class Cartscreen extends StatelessWidget {
@@ -135,8 +134,8 @@ class Cartscreen extends StatelessWidget {
       children: [
         title(),
         cartCount(),
-        // emptyCart(),
-        const CartCard(),
+        emptyCart(),
+        // const CartCard(),
       ],
     );
   }

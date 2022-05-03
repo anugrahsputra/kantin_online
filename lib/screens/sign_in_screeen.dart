@@ -210,7 +210,7 @@ class SignIn extends StatelessWidget {
           ),
         ),
         child: Text(
-          'Masuk Sekarang',
+          'Masuk Sekarang!',
           style: primaryText.copyWith(
             color: Colors.white,
             fontSize: 18,
