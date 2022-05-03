@@ -175,7 +175,58 @@ class ProductDetail extends StatelessWidget {
                 ),
                 textAlign: TextAlign.justify,
               ),
-            )
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget button() {
+      return Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: defaultPadding1,
+          vertical: defaultPadding1,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 45,
+                vertical: 15,
+              ),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: blueColor1,
+                  width: 1.5,
+                ),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(
+                '+ keranjang',
+                style: primaryText.copyWith(
+                  fontWeight: semiBold,
+                  color: blueColor1,
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 40,
+                vertical: 15,
+              ),
+              decoration: BoxDecoration(
+                color: blueColor1,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Text(
+                'Beli Langsung',
+                style: primaryText.copyWith(
+                  fontWeight: semiBold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ],
         ),
       );
@@ -189,6 +240,10 @@ class ProductDetail extends StatelessWidget {
           priceTag(),
           productDetails(),
           productDescription(),
+          const SizedBox(
+            height: defaultMargin2,
+          ),
+          button(),
         ],
       ),
     );
