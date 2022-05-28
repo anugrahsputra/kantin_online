@@ -207,6 +207,22 @@ class ProductDetail extends StatelessWidget {
             InkWell(
               onTap: () {
                 cartProvider.addCart(foodBeverageModel);
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      Future.delayed(const Duration(seconds: 1), () {
+                        Navigator.of(context).pop();
+                      });
+                      return AlertDialog(
+                        content: const Text(
+                          'Berhasil Ditambahkan',
+                          textAlign: TextAlign.center,
+                        ),
+                        contentTextStyle: primaryText.copyWith(
+                          color: Colors.black,
+                        ),
+                      );
+                    });
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:kantin_online/providers/cart_providers.dart';
+
 import 'package:provider/provider.dart';
 
 import '../constant.dart';
 import '../models/cart_model.dart';
+import '../providers/cart_providers.dart';
 
 class CartCard extends StatelessWidget {
   const CartCard({
@@ -144,7 +145,7 @@ class CartCard extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    cartProvider.removeCart(cart.id);
+                    cartProvider.reduceQuantity(cart.id);
                   },
                   child: Container(
                     padding: const EdgeInsets.all(5),
