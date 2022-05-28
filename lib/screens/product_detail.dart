@@ -1,20 +1,34 @@
 import 'package:flutter/material.dart';
 
+import 'package:kantin_online/models/fb_model.dart';
+import 'package:provider/provider.dart';
+
 import '../constant.dart';
+import '../providers/cart_providers.dart';
 
 class ProductDetail extends StatelessWidget {
-  const ProductDetail({Key? key}) : super(key: key);
+  const ProductDetail({
+    Key? key,
+    required this.foodBeverageModel,
+  }) : super(key: key);
+
+  final FoodBeverageModel foodBeverageModel;
 
   @override
   Widget build(BuildContext context) {
+    CartProvider cartProvider = Provider.of<CartProvider>(context);
+
     Widget banner() {
       return Container(
         width: MediaQuery.of(context).size.width,
         height: 272,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/cireng_poster.png'),
+            image: NetworkImage(
+              foodBeverageModel.img,
+            ),
             fit: BoxFit.fill,
+            alignment: FractionalOffset.topCenter,
           ),
         ),
       );
@@ -30,7 +44,7 @@ class ProductDetail extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Cireng Rujak Mantap',
+              foodBeverageModel.name,
               style: primaryText.copyWith(
                 fontSize: 18,
                 fontWeight: semiBold,
@@ -64,7 +78,7 @@ class ProductDetail extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: Text(
-          'Rp.17.500',
+          'Rp. ${foodBeverageModel.price}',
           style: primaryText.copyWith(
             fontSize: 14,
             fontWeight: medium,
@@ -118,19 +132,19 @@ class ProductDetail extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Makanan Ringan',
+                  foodBeverageModel.category,
                   style: primaryText.copyWith(
                     fontSize: 12,
                   ),
                 ),
                 Text(
-                  '100',
+                  foodBeverageModel.totalStock.toString(),
                   style: primaryText.copyWith(
                     fontSize: 12,
                   ),
                 ),
                 Text(
-                  '100',
+                  foodBeverageModel.stockLeft.toString(),
                   style: primaryText.copyWith(
                     fontSize: 12,
                   ),
@@ -190,23 +204,28 @@ class ProductDetail extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 45,
-                vertical: 15,
-              ),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: blueColor1,
-                  width: 1.5,
+            InkWell(
+              onTap: () {
+                cartProvider.addCart(foodBeverageModel);
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 45,
+                  vertical: 15,
                 ),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Text(
-                '+ keranjang',
-                style: primaryText.copyWith(
-                  fontWeight: semiBold,
-                  color: blueColor1,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: blueColor1,
+                    width: 1.5,
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  '+ keranjang',
+                  style: primaryText.copyWith(
+                    fontWeight: semiBold,
+                    color: blueColor1,
+                  ),
                 ),
               ),
             ),

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:kantin_online/widget/category.dart';
 import 'package:kantin_online/widget/trendproduct_card.dart';
+import 'package:provider/provider.dart';
 
 import '../constant.dart';
+import '../providers/fb_provider.dart';
 
 class TrendProducts extends StatelessWidget {
   const TrendProducts({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    FoodBeverageProvider fbProvider = Provider.of<FoodBeverageProvider>(context);
+
     Widget category() {
       return Container(
         margin: const EdgeInsets.symmetric(
@@ -82,8 +86,8 @@ class TrendProducts extends StatelessWidget {
             crossAxisSpacing: 24,
             childAspectRatio: 6 / 7,
           ),
-          itemBuilder: (context, index) => const TrendCard(),
-          itemCount: 6,
+          itemBuilder: (context, index) => TrendCard(fbModel: fbProvider.fbs[index],),
+          itemCount: fbProvider.fbs.length,
         ),
       );
     }

@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kantin_online/providers/cart_providers.dart';
+import 'package:provider/provider.dart';
 
 import '../constant.dart';
+import '../models/cart_model.dart';
 
 class CartCard extends StatelessWidget {
-  const CartCard({Key? key}) : super(key: key);
+  const CartCard({
+    Key? key,
+    required this.cart,
+  }) : super(key: key);
+
+  final CartModel cart;
 
   @override
   Widget build(BuildContext context) {
+    CartProvider cartProvider = Provider.of<CartProvider>(context);
+
     return Container(
       margin: const EdgeInsets.only(
         left: defaultMargin1,
@@ -33,8 +43,8 @@ class CartCard extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Image.asset(
-                  'assets/images/kopi.png',
+                Image.network(
+                  cart.foodBeverage.img,
                   width: 52,
                 ),
                 const SizedBox(
@@ -44,7 +54,7 @@ class CartCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Hazelnut Coffee',
+                      cart.foodBeverage.name,
                       style: primaryText.copyWith(
                         fontSize: 12,
                         fontWeight: medium,
@@ -62,7 +72,7 @@ class CartCard extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: 'Aneka Kopi',
+                            text: cart.foodBeverage.category,
                             style: primaryText.copyWith(
                               fontSize: 10,
                               fontWeight: medium,
@@ -84,7 +94,7 @@ class CartCard extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: '2',
+                            text: cart.quantity.toString(),
                             style: primaryText.copyWith(
                               fontSize: 10,
                               fontWeight: medium,
@@ -123,7 +133,7 @@ class CartCard extends StatelessWidget {
                       textAlign: TextAlign.left,
                     ),
                     Text(
-                      'Rp. 20.000',
+                      'Rp ${cart.foodBeverage.price * cart.quantity}',
                       style: primaryText.copyWith(
                         fontSize: 12,
                         fontWeight: medium,
@@ -133,7 +143,9 @@ class CartCard extends StatelessWidget {
                   ],
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    cartProvider.removeCart(cart.id);
+                  },
                   child: Container(
                     padding: const EdgeInsets.all(5),
                     width: 31,

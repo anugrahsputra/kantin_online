@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kantin_online/providers/cart_providers.dart';
+import 'package:provider/provider.dart';
 
 import '../../constant.dart';
+import '../../widget/cart_card.dart';
 import '../trendproducts_screen.dart';
 
 class Cartscreen extends StatelessWidget {
@@ -8,6 +11,8 @@ class Cartscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CartProvider cartProvider = Provider.of<CartProvider>(context);
+
     Widget title() {
       return Container(
         margin: const EdgeInsets.symmetric(
@@ -53,7 +58,7 @@ class Cartscreen extends StatelessWidget {
               ),
             ),
             Text(
-              '0',
+              cartProvider.totalItems().toString(),
               style: primaryText.copyWith(
                 fontSize: 12,
                 fontWeight: semiBold,
@@ -130,12 +135,19 @@ class Cartscreen extends StatelessWidget {
       );
     }
 
+    Widget content() {
+      return Column(
+        children: [
+          ...cartProvider.carts.map((cart) => CartCard(cart: cart)).toList()
+        ],
+      );
+    }
+
     return ListView(
       children: [
         title(),
         cartCount(),
-        emptyCart(),
-        // const CartCard(),
+        cartProvider.carts.isEmpty ? emptyCart() : content()
       ],
     );
   }

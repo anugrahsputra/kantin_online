@@ -1,8 +1,10 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../constant.dart';
+import '../../providers/fb_provider.dart';
 import '../../widget/carousel_image.dart';
 import '../../widget/category.dart';
 import '../../widget/terbaru_card.dart';
@@ -13,6 +15,9 @@ class Homescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FoodBeverageProvider fbProvider = Provider.of<FoodBeverageProvider>(context);
+
+
     Widget header() {
       return Container(
         margin: const EdgeInsets.only(
@@ -116,12 +121,14 @@ class Homescreen extends StatelessWidget {
         child: ListView.separated(
           padding: const EdgeInsets.only(left: 35, right: 35, top: 13),
           scrollDirection: Axis.horizontal,
-          itemCount: 5,
+          itemCount: fbProvider.fbs.length,
           separatorBuilder: (context, _) => const SizedBox(
             width: 15,
           ),
           itemBuilder: (context, index) {
-            return const TerlarisCard();
+            return TerlarisCard(
+              fbModels: fbProvider.fbs[index],
+            );
           },
         ),
       );
@@ -166,7 +173,7 @@ class Homescreen extends StatelessWidget {
             width: 15,
           ),
           itemBuilder: (context, index) {
-            return const TerbaruCard();
+            return TerbaruCard(fbModel: fbProvider.fbs[index],);
           },
         ),
       );

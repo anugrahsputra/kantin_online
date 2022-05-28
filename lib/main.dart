@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:kantin_online/providers/cart_providers.dart';
+import 'package:kantin_online/providers/fb_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'constant.dart';
@@ -33,7 +35,13 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => PageProvier(),
-        )
+        ),
+        ChangeNotifierProvider(
+          create: (context) => FoodBeverageProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CartProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
