@@ -20,11 +20,14 @@ class TerbaruCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ProductDetail(foodBeverageModel: fbModel,),
+            builder: (context) => ProductDetail(
+              foodBeverageModel: fbModel,
+            ),
           ),
         );
       },
       child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 8),
         width: 123,
         height: 143,
         decoration: BoxDecoration(
@@ -34,7 +37,7 @@ class TerbaruCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(fbModel.img),
+            Image.asset(fbModel.img),
             Padding(
               padding: const EdgeInsets.only(top: 8, left: 5),
               child: Text(

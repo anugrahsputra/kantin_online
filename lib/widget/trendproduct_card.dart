@@ -20,7 +20,9 @@ class TrendCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ProductDetail(foodBeverageModel: fbModel,),
+            builder: (context) => ProductDetail(
+              foodBeverageModel: fbModel,
+            ),
           ),
         );
       },
@@ -40,7 +42,7 @@ class TrendCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(fbModel.img),
+            Image.asset(fbModel.img),
             Padding(
               padding: const EdgeInsets.only(top: 8, left: 5),
               child: Text(
@@ -57,7 +59,7 @@ class TrendCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Rp. ${fbModel.price}' ,
+                    'Rp. ${fbModel.price}',
                     style: primaryText.copyWith(fontSize: 11),
                   ),
                   Text(

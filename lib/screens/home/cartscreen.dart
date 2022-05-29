@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kantin_online/providers/cart_providers.dart';
+
 import 'package:provider/provider.dart';
 
 import '../../constant.dart';
+import '../../providers/cart_providers.dart';
 import '../../widget/cart_card.dart';
 import '../trendproducts_screen.dart';
 

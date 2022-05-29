@@ -8,15 +8,14 @@ import '../../providers/fb_provider.dart';
 import '../../widget/carousel_image.dart';
 import '../../widget/category.dart';
 import '../../widget/terbaru_card.dart';
-import '../../widget/terlaris_card.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    FoodBeverageProvider fbProvider = Provider.of<FoodBeverageProvider>(context);
-
+    FoodBeverageProvider fbProvider =
+        Provider.of<FoodBeverageProvider>(context);
 
     Widget header() {
       return Container(
@@ -118,18 +117,20 @@ class Homescreen extends StatelessWidget {
     Widget productTerlaris() {
       return Container(
         height: 160,
-        child: ListView.separated(
-          padding: const EdgeInsets.only(left: 35, right: 35, top: 13),
+        child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          itemCount: fbProvider.fbs.length,
-          separatorBuilder: (context, _) => const SizedBox(
-            width: 15,
+          child: Row(
+            children: [
+              const SizedBox(
+                width: defaultMargin2,
+              ),
+              Row(
+                children: fbProvider.fbs
+                    .map((fb) => TerbaruCard(fbModel: fb))
+                    .toList(),
+              ),
+            ],
           ),
-          itemBuilder: (context, index) {
-            return TerlarisCard(
-              fbModels: fbProvider.fbs[index],
-            );
-          },
         ),
       );
     }
@@ -165,16 +166,20 @@ class Homescreen extends StatelessWidget {
     Widget productTerbaru() {
       return Container(
         height: 160,
-        child: ListView.separated(
-          padding: const EdgeInsets.only(left: 35, right: 35, top: 13),
+        child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          itemCount: 5,
-          separatorBuilder: (context, _) => const SizedBox(
-            width: 15,
+          child: Row(
+            children: [
+              const SizedBox(
+                width: defaultMargin2,
+              ),
+              Row(
+                children: fbProvider.fbs
+                    .map((fb) => TerbaruCard(fbModel: fb))
+                    .toList(),
+              ),
+            ],
           ),
-          itemBuilder: (context, index) {
-            return TerbaruCard(fbModel: fbProvider.fbs[index],);
-          },
         ),
       );
     }

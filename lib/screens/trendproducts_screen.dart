@@ -11,7 +11,8 @@ class TrendProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FoodBeverageProvider fbProvider = Provider.of<FoodBeverageProvider>(context);
+    FoodBeverageProvider fbProvider =
+        Provider.of<FoodBeverageProvider>(context);
 
     Widget category() {
       return Container(
@@ -86,7 +87,9 @@ class TrendProducts extends StatelessWidget {
             crossAxisSpacing: 24,
             childAspectRatio: 6 / 7,
           ),
-          itemBuilder: (context, index) => TrendCard(fbModel: fbProvider.fbs[index],),
+          itemBuilder: (context, index) => TrendCard(
+            fbModel: fbProvider.fbs[index],
+          ),
           itemCount: fbProvider.fbs.length,
         ),
       );

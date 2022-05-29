@@ -11,7 +11,8 @@ class FoodBeverageProvider with ChangeNotifier {
       totalStock: 100,
       stockLeft: 100,
       price: 17500,
-      img: 'https://i.ibb.co/XZvsTsZ/cirengmantap.png',
+      img: 'assets/images/cireng.png',
+      description: 'Dibuat dari tepung tapioka pilihan',
     ),
     FoodBeverageModel(
       id: 2,
@@ -21,7 +22,8 @@ class FoodBeverageProvider with ChangeNotifier {
       totalStock: 100,
       stockLeft: 100,
       price: 20000,
-      img: 'https://i.ibb.co/GVM0gz9/javabrown.png',
+      img: 'assets/images/hazelnut.png',
+      description: 'Kopi Espresso, Susu UHT dan Syrup Huzelnut',
     ),
     FoodBeverageModel(
       id: 3,
@@ -31,7 +33,8 @@ class FoodBeverageProvider with ChangeNotifier {
       totalStock: 100,
       stockLeft: 100,
       price: 25000,
-      img: 'https://i.ibb.co/QFHtzBq/Rectangle-9.png',
+      img: 'assets/images/javabrown.png',
+      description: 'Kopi Espresso, Susu UHT dan Syrup Huzelnut',
     ),
     FoodBeverageModel(
       id: 4,
@@ -41,7 +44,8 @@ class FoodBeverageProvider with ChangeNotifier {
       totalStock: 100,
       stockLeft: 100,
       price: 15000,
-      img: 'https://i.ibb.co/XZvsTsZ/cirengmantap.png',
+      img: 'assets/images/cirengmantap.png',
+      description: 'Dibuat dari tepung tapioka pilihan',
     ),
     FoodBeverageModel(
       id: 5,
@@ -51,7 +55,19 @@ class FoodBeverageProvider with ChangeNotifier {
       totalStock: 100,
       stockLeft: 100,
       price: 23000,
-      img: 'https://i.ibb.co/xhNBmPL/cirengmantap2.png',
+      img: 'assets/images/cireng.png',
+      description: 'Dibuat dari tepung tapioka pilihan',
+    ),
+    FoodBeverageModel(
+      id: 6,
+      name: 'Cireng Mantap 2',
+      category: 'Makanan Ringan',
+      address: 'Cimahi, Jawa Barat',
+      totalStock: 100,
+      stockLeft: 100,
+      price: 15000,
+      img: 'assets/images/cirengmantap2.png',
+      description: 'Dibuat dari tepung tapioka pilihan',
     ),
   ];
 

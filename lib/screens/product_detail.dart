@@ -24,7 +24,7 @@ class ProductDetail extends StatelessWidget {
         height: 272,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(
+            image: AssetImage(
               foodBeverageModel.img,
             ),
             fit: BoxFit.fill,
@@ -183,7 +183,7 @@ class ProductDetail extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 12),
               child: Text(
-                'Dibuat dari tepung Tapioka pilihan',
+                foodBeverageModel.description,
                 style: primaryText.copyWith(
                   color: const Color(0xff8D8D8D),
                 ),
@@ -207,22 +207,24 @@ class ProductDetail extends StatelessWidget {
             InkWell(
               onTap: () {
                 cartProvider.addCart(foodBeverageModel);
+
                 showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      Future.delayed(const Duration(seconds: 1), () {
-                        Navigator.of(context).pop();
-                      });
-                      return AlertDialog(
-                        content: const Text(
-                          'Berhasil Ditambahkan',
-                          textAlign: TextAlign.center,
-                        ),
-                        contentTextStyle: primaryText.copyWith(
-                          color: Colors.black,
-                        ),
-                      );
+                  context: context,
+                  builder: (BuildContext context) {
+                    Future.delayed(const Duration(seconds: 1), () {
+                      Navigator.of(context).pop();
                     });
+                    return AlertDialog(
+                      content: const Text(
+                        'Berhasil Ditambahkan',
+                        textAlign: TextAlign.center,
+                      ),
+                      contentTextStyle: primaryText.copyWith(
+                        color: Colors.black,
+                      ),
+                    );
+                  },
+                );
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(

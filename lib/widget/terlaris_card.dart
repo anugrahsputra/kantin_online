@@ -11,14 +11,14 @@ class TerlarisCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ProductDetail(foodBeverageModel: fbModels,),
+            builder: (context) => ProductDetail(
+              foodBeverageModel: fbModels,
+            ),
           ),
         );
       },
@@ -32,7 +32,7 @@ class TerlarisCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(fbModels.img),
+            Image.asset(fbModels.img),
             Padding(
               padding: const EdgeInsets.only(top: 8, left: 5),
               child: Text(

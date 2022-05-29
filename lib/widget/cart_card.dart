@@ -44,7 +44,7 @@ class CartCard extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Image.network(
+                Image.asset(
                   cart.foodBeverage.img,
                   width: 52,
                 ),
@@ -143,7 +143,7 @@ class CartCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     cartProvider.reduceQuantity(cart.id);
                   },

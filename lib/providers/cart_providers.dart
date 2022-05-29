@@ -15,13 +15,17 @@ class CartProvider with ChangeNotifier {
 
   addCart(FoodBeverageModel foodBeverage) {
     if (productExist(foodBeverage)) {
-      int index = _carts
+      int id = _carts
           .indexWhere((element) => element.foodBeverage.id == foodBeverage.id);
-
-      _carts[index].quantity++;
+      _carts[id].quantity++;
     } else {
-      _carts.add(CartModel(
-          id: _carts.length, foodBeverage: foodBeverage, quantity: 1));
+      _carts.add(
+        CartModel(
+          id: _carts.length,
+          foodBeverage: foodBeverage,
+          quantity: 1,
+        ),
+      );
     }
 
     notifyListeners();
