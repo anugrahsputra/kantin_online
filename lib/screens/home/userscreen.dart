@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../constant.dart';
+import '../../models/user_model.dart';
+import '../../providers/auth_provider.dart';
 
 class Userscreen extends StatelessWidget {
   const Userscreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
+
     Widget header() {
       return Container(
         margin: const EdgeInsets.only(
@@ -16,8 +22,8 @@ class Userscreen extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Image.asset(
-              'assets/images/default_profilepic.png',
+            Image.network(
+              '${user.profilePhotoUrl}',
               width: 39,
             ),
             const SizedBox(
@@ -27,14 +33,14 @@ class Userscreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Anugrah Surya Putra',
+                  '${user.name}',
                   style: primaryText.copyWith(
                     fontSize: 16,
                     fontWeight: medium,
                   ),
                 ),
                 Text(
-                  'putra.183040095@mail.unpas.ac.id',
+                  '${user.email}',
                   style: primaryText.copyWith(
                     fontSize: 10,
                     color: const Color(0xff808080),
@@ -251,6 +257,38 @@ class Userscreen extends StatelessWidget {
       );
     }
 
+    Widget logoutButton(context) {
+      return Container(
+        height: 52,
+        width: double.infinity,
+        margin: const EdgeInsets.only(
+          top: 41,
+          left: defaultMargin1,
+          right: defaultMargin1,
+          bottom: defaultMargin1,
+        ),
+        child: TextButton(
+          onPressed: () {
+            Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+          },
+          style: TextButton.styleFrom(
+            backgroundColor: blueColor2,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+          child: Text(
+            'Logout',
+            style: primaryText.copyWith(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: bold,
+            ),
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SafeArea(
@@ -259,6 +297,8 @@ class Userscreen extends StatelessWidget {
             header(),
             akun(),
             general(),
+            const Spacer(),
+            logoutButton(context),
           ],
         ),
       ),

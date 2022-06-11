@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../constant.dart';
+import '../../models/user_model.dart';
+import '../../providers/auth_provider.dart';
 import '../../providers/fb_provider.dart';
 import '../../widget/carousel_image.dart';
 import '../../widget/category.dart';
@@ -14,6 +16,8 @@ class Homescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    UserModel user = authProvider.user;
     FoodBeverageProvider fbProvider =
         Provider.of<FoodBeverageProvider>(context);
 
@@ -31,11 +35,11 @@ class Homescreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Selamat Siang,',
+                    greating(),
                     style: primaryText.copyWith(),
                   ),
                   Text(
-                    'Anugrah Surya Putra',
+                    '${user.name}',
                     style: primaryText.copyWith(
                       fontSize: 14,
                       fontWeight: bold,
@@ -47,10 +51,10 @@ class Homescreen extends StatelessWidget {
             Container(
               width: 32,
               height: 32,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
-                  image: AssetImage('assets/images/default_profilepic.png'),
+                  image: NetworkImage('${user.profilePhotoUrl}'),
                 ),
               ),
             ),
@@ -175,7 +179,7 @@ class Homescreen extends StatelessWidget {
               ),
               Row(
                 children: fbProvider.fbs
-                    .map((fb) => TerbaruCard(fbModel: fb))
+                    .map((foodBeverage) => TerbaruCard(fbModel: foodBeverage))
                     .toList(),
               ),
             ],
@@ -198,5 +202,19 @@ class Homescreen extends StatelessWidget {
         )
       ],
     );
+  }
+
+  String greating() {
+    var hour = DateTime.now().hour;
+    if (hour < 12) {
+      return 'Selamat Pagi,';
+    }
+    if (hour < 15) {
+      return 'Selamat Siang,';
+    }
+    if (hour < 18) {
+      return 'Selamat Sore,';
+    }
+    return 'Selamat Malam,';
   }
 }
