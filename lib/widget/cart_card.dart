@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kantin_online/models/cart_model.dart';
 
 import 'package:provider/provider.dart';
 
 import '../constant.dart';
-import '../models/cart_model.dart';
-import '../providers/cart_providers.dart';
+import '../providers/cart_provider.dart';
 
 class CartCard extends StatelessWidget {
   const CartCard({
@@ -45,7 +45,7 @@ class CartCard extends StatelessWidget {
             child: Row(
               children: [
                 Image.asset(
-                  cart.foodBeverage.img,
+                  '${cart.products.img}',
                   width: 52,
                 ),
                 const SizedBox(
@@ -55,7 +55,7 @@ class CartCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      cart.foodBeverage.name,
+                      cart.products.name.toString(),
                       style: primaryText.copyWith(
                         fontSize: 12,
                         fontWeight: medium,
@@ -73,7 +73,7 @@ class CartCard extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: cart.foodBeverage.category,
+                            text: cart.products.category,
                             style: primaryText.copyWith(
                               fontSize: 10,
                               fontWeight: medium,
@@ -134,7 +134,7 @@ class CartCard extends StatelessWidget {
                       textAlign: TextAlign.left,
                     ),
                     Text(
-                      'Rp ${cart.foodBeverage.price * cart.quantity}',
+                      'Rp ${cart.products.price! * cart.quantity}',
                       style: primaryText.copyWith(
                         fontSize: 12,
                         fontWeight: medium,

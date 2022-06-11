@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../constant.dart';
-import '../../providers/cart_providers.dart';
+
+import '../../providers/cart_provider.dart';
 import '../../widget/cart_card.dart';
 import '../trendproducts_screen.dart';
 
@@ -12,7 +13,7 @@ class Cartscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CartProvider cartProvider = Provider.of<CartProvider>(context);
+    CartProvider cart = Provider.of<CartProvider>(context);
 
     Widget title() {
       return Container(
@@ -59,7 +60,7 @@ class Cartscreen extends StatelessWidget {
               ),
             ),
             Text(
-              cartProvider.totalItems().toString(),
+              '',
               style: primaryText.copyWith(
                 fontSize: 12,
                 fontWeight: semiBold,
@@ -139,7 +140,11 @@ class Cartscreen extends StatelessWidget {
     Widget content() {
       return Column(
         children: [
-          ...cartProvider.carts.map((cart) => CartCard(cart: cart)).toList()
+          ...cart.carts
+              .map(
+                (cart) => CartCard(cart: cart),
+              )
+              .toList()
         ],
       );
     }
@@ -148,7 +153,7 @@ class Cartscreen extends StatelessWidget {
       children: [
         title(),
         cartCount(),
-        cartProvider.carts.isEmpty ? emptyCart() : content()
+        cart.carts.isEmpty ? emptyCart() : content()
       ],
     );
   }

@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-
-import 'package:kantin_online/models/fb_model.dart';
+import 'package:kantin_online/models/product_model.dart';
 
 import '../constant.dart';
 import '../screens/product_detail.dart';
 
 class TerbaruCard extends StatelessWidget {
-  const TerbaruCard({
-    Key? key,
-    required this.fbModel,
-  }) : super(key: key);
+  const TerbaruCard({Key? key, required this.products}) : super(key: key);
 
-  final FoodBeverageModel fbModel;
+  final ProductModel products;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +17,7 @@ class TerbaruCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => ProductDetail(
-              foodBeverageModel: fbModel,
+              products: products,
             ),
           ),
         );
@@ -37,11 +33,11 @@ class TerbaruCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(fbModel.img),
+            Image.asset('${products.img}'),
             Padding(
               padding: const EdgeInsets.only(top: 8, left: 5),
               child: Text(
-                fbModel.name,
+                '${products.name}',
                 style: primaryText.copyWith(
                   fontSize: 12,
                 ),
@@ -54,7 +50,7 @@ class TerbaruCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Rp. ${fbModel.price}',
+                    'Rp. ${products.price}',
                     style: primaryText.copyWith(fontSize: 11),
                   ),
                   Text(

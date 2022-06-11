@@ -4,16 +4,12 @@ import 'package:kantin_online/widget/trendproduct_card.dart';
 import 'package:provider/provider.dart';
 
 import '../constant.dart';
-import '../providers/fb_provider.dart';
 
 class TrendProducts extends StatelessWidget {
   const TrendProducts({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    FoodBeverageProvider fbProvider =
-        Provider.of<FoodBeverageProvider>(context);
-
     Widget category() {
       return Container(
         margin: const EdgeInsets.symmetric(
@@ -70,30 +66,30 @@ class TrendProducts extends StatelessWidget {
       );
     }
 
-    Widget trendProduct() {
-      // ignore: sized_box_for_whitespace
-      return Container(
-        height: MediaQuery.of(context).size.height,
-        child: GridView.builder(
-          padding: const EdgeInsets.only(
-            top: 15,
-            left: defaultMargin1,
-            right: defaultMargin1,
-          ),
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 32,
-            crossAxisSpacing: 24,
-            childAspectRatio: 6 / 7,
-          ),
-          itemBuilder: (context, index) => TrendCard(
-            fbModel: fbProvider.fbs[index],
-          ),
-          itemCount: fbProvider.fbs.length,
-        ),
-      );
-    }
+    // Widget trendProduct() {
+    //   // ignore: sized_box_for_whitespace
+    //   return Container(
+    //     height: MediaQuery.of(context).size.height,
+    //     child: GridView.builder(
+    //       padding: const EdgeInsets.only(
+    //         top: 15,
+    //         left: defaultMargin1,
+    //         right: defaultMargin1,
+    //       ),
+    //       physics: const NeverScrollableScrollPhysics(),
+    //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+    //         crossAxisCount: 2,
+    //         mainAxisSpacing: 32,
+    //         crossAxisSpacing: 24,
+    //         childAspectRatio: 6 / 7,
+    //       ),
+    //       itemBuilder: (context, index) => TrendCard(
+    //         fbModel: fbProvider.fbs[index],
+    //       ),
+    //       itemCount: fbProvider.fbs.length,
+    //     ),
+    //   );
+    // }
 
     return Scaffold(
       appBar: AppBar(
@@ -118,7 +114,7 @@ class TrendProducts extends StatelessWidget {
             category(),
             banner(),
             trendProductTitle(),
-            trendProduct(),
+            // trendProduct(),
           ],
         ),
       ),

@@ -24,7 +24,7 @@ class Userscreen extends StatelessWidget {
           children: [
             Image.network(
               '${user.profilePhotoUrl}',
-              width: 39,
+              width: 20,
             ),
             const SizedBox(
               width: 15,

@@ -1,17 +1,17 @@
-import 'package:kantin_online/models/fb_model.dart';
+import 'package:kantin_online/models/product_model.dart';
 
 class CartModel {
   int id;
-  FoodBeverageModel foodBeverage;
+  ProductModel products;
   int quantity;
 
   CartModel({
     required this.id,
-    required this.foodBeverage,
+    required this.products,
     required this.quantity,
   });
 
   int getTotalPrice() {
-    return foodBeverage.price * quantity;
+    return products.price! * quantity;
   }
 }

@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
-
-import 'package:kantin_online/models/fb_model.dart';
+import 'package:kantin_online/models/product_model.dart';
 import 'package:provider/provider.dart';
 
 import '../constant.dart';
-import '../providers/cart_providers.dart';
+import '../providers/cart_provider.dart';
 
 class ProductDetail extends StatelessWidget {
   const ProductDetail({
     Key? key,
-    required this.foodBeverageModel,
+    required this.products,
   }) : super(key: key);
 
-  final FoodBeverageModel foodBeverageModel;
+  final ProductModel products;
 
   @override
   Widget build(BuildContext context) {
-    CartProvider cartProvider = Provider.of<CartProvider>(context);
+    CartProvider cart = Provider.of<CartProvider>(context);
 
     Widget banner() {
       return Container(
@@ -24,9 +23,7 @@ class ProductDetail extends StatelessWidget {
         height: 272,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(
-              foodBeverageModel.img,
-            ),
+            image: AssetImage('${products.img}'),
             fit: BoxFit.fill,
             alignment: FractionalOffset.topCenter,
           ),
@@ -44,7 +41,7 @@ class ProductDetail extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              foodBeverageModel.name,
+              '${products.name}',
               style: primaryText.copyWith(
                 fontSize: 18,
                 fontWeight: semiBold,
@@ -78,7 +75,7 @@ class ProductDetail extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: Text(
-          'Rp. ${foodBeverageModel.price}',
+          'Rp. ${products.price}',
           style: primaryText.copyWith(
             fontSize: 14,
             fontWeight: medium,
@@ -132,19 +129,19 @@ class ProductDetail extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  foodBeverageModel.category,
+                  products.category.toString(),
                   style: primaryText.copyWith(
                     fontSize: 12,
                   ),
                 ),
                 Text(
-                  foodBeverageModel.totalStock.toString(),
+                  products.totalStock.toString(),
                   style: primaryText.copyWith(
                     fontSize: 12,
                   ),
                 ),
                 Text(
-                  foodBeverageModel.stockLeft.toString(),
+                  products.stockLeft.toString(),
                   style: primaryText.copyWith(
                     fontSize: 12,
                   ),
@@ -183,7 +180,7 @@ class ProductDetail extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 12),
               child: Text(
-                foodBeverageModel.description,
+                '${products.description}',
                 style: primaryText.copyWith(
                   color: const Color(0xff8D8D8D),
                 ),
@@ -206,8 +203,7 @@ class ProductDetail extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                cartProvider.addCart(foodBeverageModel);
-
+                cart.addCart(products);
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {

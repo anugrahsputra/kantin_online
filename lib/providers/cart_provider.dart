@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kantin_online/models/fb_model.dart';
 
 import '../models/cart_model.dart';
+import '../models/product_model.dart';
 
 class CartProvider with ChangeNotifier {
   List<CartModel> _carts = [];
@@ -13,16 +13,16 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  addCart(FoodBeverageModel foodBeverage) {
-    if (productExist(foodBeverage)) {
-      int id = _carts
-          .indexWhere((element) => element.foodBeverage.id == foodBeverage.id);
+  addCart(ProductModel products) {
+    if (productExist(products)) {
+      int id =
+          _carts.indexWhere((element) => element.products.id == products.id);
       _carts[id].quantity++;
     } else {
       _carts.add(
         CartModel(
           id: _carts.length,
-          foodBeverage: foodBeverage,
+          products: products,
           quantity: 1,
         ),
       );
@@ -61,14 +61,13 @@ class CartProvider with ChangeNotifier {
   totalPrice() {
     double total = 0;
     for (var item in _carts) {
-      total += (item.quantity * item.foodBeverage.price);
+      total += (item.quantity * item.products.price!);
     }
     return total;
   }
 
-  productExist(FoodBeverageModel foodBeverage) {
-    if (_carts.indexWhere(
-            (element) => element.foodBeverage.id == foodBeverage.id) ==
+  productExist(ProductModel products) {
+    if (_carts.indexWhere((element) => element.products.id == products.id) ==
         -1) {
       return false;
     } else {

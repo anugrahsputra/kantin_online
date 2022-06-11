@@ -1,15 +1,17 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
+import 'package:kantin_online/providers/product_provider.dart';
+import 'package:kantin_online/widget/terbaru_card.dart';
+import 'package:kantin_online/widget/terlaris_card.dart';
 import 'package:provider/provider.dart';
 
 import '../../constant.dart';
 import '../../models/user_model.dart';
 import '../../providers/auth_provider.dart';
-import '../../providers/fb_provider.dart';
+
 import '../../widget/carousel_image.dart';
 import '../../widget/category.dart';
-import '../../widget/terbaru_card.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({Key? key}) : super(key: key);
@@ -18,8 +20,8 @@ class Homescreen extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     UserModel user = authProvider.user;
-    FoodBeverageProvider fbProvider =
-        Provider.of<FoodBeverageProvider>(context);
+    ProductProvider productProvider = Provider.of<ProductProvider>(context);
+    print('jumlah data produk:  ${productProvider.products.length}');
 
     Widget header() {
       return Container(
@@ -129,8 +131,10 @@ class Homescreen extends StatelessWidget {
                 width: defaultMargin2,
               ),
               Row(
-                children: fbProvider.fbs
-                    .map((fb) => TerbaruCard(fbModel: fb))
+                children: productProvider.products
+                    .map(
+                      (products) => TerlarisCard(products: products),
+                    )
                     .toList(),
               ),
             ],
@@ -178,10 +182,9 @@ class Homescreen extends StatelessWidget {
                 width: defaultMargin2,
               ),
               Row(
-                children: fbProvider.fbs
-                    .map((foodBeverage) => TerbaruCard(fbModel: foodBeverage))
-                    .toList(),
-              ),
+                  children: productProvider.products
+                      .map((e) => TerbaruCard(products: e))
+                      .toList()),
             ],
           ),
         ),

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kantin_online/models/fb_model.dart';
 
-class FoodBeverageProvider with ChangeNotifier {
-  List<FoodBeverageModel> _fb = [
-    FoodBeverageModel(
+import '../models/product_model.dart';
+
+class ProductProvider with ChangeNotifier {
+  List<ProductModel> _products = [
+    ProductModel(
       id: 1,
       name: 'Cireng Rujak',
       category: 'Makanan Ringan',
@@ -14,7 +15,7 @@ class FoodBeverageProvider with ChangeNotifier {
       img: 'assets/images/cireng.png',
       description: 'Dibuat dari tepung tapioka pilihan',
     ),
-    FoodBeverageModel(
+    ProductModel(
       id: 2,
       name: 'Hazelnut Coffee',
       category: 'Aneka Kopi',
@@ -25,7 +26,7 @@ class FoodBeverageProvider with ChangeNotifier {
       img: 'assets/images/hazelnut.png',
       description: 'Kopi Espresso, Susu UHT dan Syrup Huzelnut',
     ),
-    FoodBeverageModel(
+    ProductModel(
       id: 3,
       name: 'Java Brown Sugar Coffee',
       category: 'Aneka Kopi',
@@ -36,7 +37,7 @@ class FoodBeverageProvider with ChangeNotifier {
       img: 'assets/images/javabrown.png',
       description: 'Kopi Espresso, Susu UHT dan Syrup Huzelnut',
     ),
-    FoodBeverageModel(
+    ProductModel(
       id: 4,
       name: 'Cireng Mantap',
       category: 'Makanan Ringan',
@@ -47,7 +48,7 @@ class FoodBeverageProvider with ChangeNotifier {
       img: 'assets/images/cirengmantap.png',
       description: 'Dibuat dari tepung tapioka pilihan',
     ),
-    FoodBeverageModel(
+    ProductModel(
       id: 5,
       name: 'Cireng Rujak Mantap',
       category: 'Makanan Ringan',
@@ -58,7 +59,7 @@ class FoodBeverageProvider with ChangeNotifier {
       img: 'assets/images/cireng.png',
       description: 'Dibuat dari tepung tapioka pilihan',
     ),
-    FoodBeverageModel(
+    ProductModel(
       id: 6,
       name: 'Cireng Mantap 2',
       category: 'Makanan Ringan',
@@ -70,11 +71,10 @@ class FoodBeverageProvider with ChangeNotifier {
       description: 'Dibuat dari tepung tapioka pilihan',
     ),
   ];
+  List<ProductModel> get products => _products;
 
-  List<FoodBeverageModel> get fbs => _fb;
-
-  set foodbeverage(List<FoodBeverageModel> fb) {
-    _fb = fb;
+  set product(List<ProductModel> products) {
+    _products = products;
     notifyListeners();
   }
 }

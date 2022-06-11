@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:kantin_online/models/fb_model.dart';
+import 'package:kantin_online/models/product_model.dart';
 
 import '../constant.dart';
 import '../screens/product_detail.dart';
@@ -8,11 +7,10 @@ import '../screens/product_detail.dart';
 class TrendCard extends StatelessWidget {
   const TrendCard({
     Key? key,
-    required this.fbModel,
+    required this.products,
   }) : super(key: key);
 
-  final FoodBeverageModel fbModel;
-
+  final ProductModel products;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -21,7 +19,7 @@ class TrendCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => ProductDetail(
-              foodBeverageModel: fbModel,
+              products: products,
             ),
           ),
         );
@@ -42,11 +40,11 @@ class TrendCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(fbModel.img),
+            Image.network('${products.img}'),
             Padding(
               padding: const EdgeInsets.only(top: 8, left: 5),
               child: Text(
-                fbModel.name,
+                '${products.name}',
                 style: primaryText.copyWith(
                   fontSize: 12,
                 ),
@@ -59,7 +57,7 @@ class TrendCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Rp. ${fbModel.price}',
+                    'Rp. ${products.price}',
                     style: primaryText.copyWith(fontSize: 11),
                   ),
                   Text(

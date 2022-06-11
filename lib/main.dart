@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:kantin_online/providers/cart_providers.dart';
-import 'package:kantin_online/providers/fb_provider.dart';
+import 'package:kantin_online/providers/auth_provider.dart';
+
 import 'package:provider/provider.dart';
 
 import 'constant.dart';
+import 'providers/cart_provider.dart';
 import 'providers/page_provider.dart';
+import 'providers/product_provider.dart';
 import 'screens/mainscreen.dart';
 import 'screens/newproducts_screen.dart';
 import 'screens/sign_in_screeen.dart';
@@ -37,7 +39,10 @@ class MyApp extends StatelessWidget {
           create: (context) => PageProvier(),
         ),
         ChangeNotifierProvider(
-          create: (context) => FoodBeverageProvider(),
+          create: (context) => AuthProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ProductProvider(),
         ),
         ChangeNotifierProvider(
           create: (context) => CartProvider(),
@@ -47,7 +52,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routes: {
           '/': (context) => const SignIn(),
-          '/sign-up': (context) => const SignUp(),
+          '/sign-up': (context) => SignUp(),
           '/home': (context) => const Mainscreen(),
           '/new-product': (context) => const NewProducts(),
           '/trend-product': (context) => const TrendProducts()

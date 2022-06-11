@@ -1,15 +1,15 @@
-class FoodBeverageModel {
+class ProductModel {
   int? id;
-  String name;
-  String category;
-  String address;
-  String img;
-  String description;
-  int totalStock;
-  int stockLeft;
-  int price;
+  String? name;
+  String? category;
+  String? address;
+  String? img;
+  String? description;
+  int? totalStock;
+  int? stockLeft;
+  int? price;
 
-  FoodBeverageModel({
+  ProductModel({
     required this.id,
     required this.name,
     required this.category,
