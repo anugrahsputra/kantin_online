@@ -1,7 +1,7 @@
 import 'package:kantin_online/models/product_model.dart';
 
 class CartModel {
-  int id;
+  int? id;
   ProductModel products;
   int quantity;
 

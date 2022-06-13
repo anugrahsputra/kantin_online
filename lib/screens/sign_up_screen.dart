@@ -314,7 +314,9 @@ class _SignUpState extends State<SignUp> {
           bottom: defaultMargin1,
         ),
         child: TextButton(
-          onPressed: handleSignUp,
+          onPressed: () {
+            Navigator.pushNamed(context, '/home');
+          },
           style: TextButton.styleFrom(
             backgroundColor: blueColor2,
             shape: RoundedRectangleBorder(

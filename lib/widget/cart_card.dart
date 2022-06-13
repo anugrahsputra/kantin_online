@@ -145,7 +145,7 @@ class CartCard extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    cartProvider.reduceQuantity(cart.id);
+                    cartProvider.reduceQuantity(cart.id!);
                   },
                   child: Container(
                     padding: const EdgeInsets.all(5),

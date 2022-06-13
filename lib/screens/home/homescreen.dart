@@ -7,8 +7,6 @@ import 'package:kantin_online/widget/terlaris_card.dart';
 import 'package:provider/provider.dart';
 
 import '../../constant.dart';
-import '../../models/user_model.dart';
-import '../../providers/auth_provider.dart';
 
 import '../../widget/carousel_image.dart';
 import '../../widget/category.dart';
@@ -18,10 +16,7 @@ class Homescreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AuthProvider authProvider = Provider.of<AuthProvider>(context);
-    UserModel user = authProvider.user;
     ProductProvider productProvider = Provider.of<ProductProvider>(context);
-    print('jumlah data produk:  ${productProvider.products.length}');
 
     Widget header() {
       return Container(
@@ -41,7 +36,7 @@ class Homescreen extends StatelessWidget {
                     style: primaryText.copyWith(),
                   ),
                   Text(
-                    '${user.name}',
+                    'Anugrah Surya Putra',
                     style: primaryText.copyWith(
                       fontSize: 14,
                       fontWeight: bold,
@@ -53,10 +48,10 @@ class Homescreen extends StatelessWidget {
             Container(
               width: 32,
               height: 32,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
-                  image: NetworkImage('${user.profilePhotoUrl}'),
+                  image: AssetImage('assets/images/default_profilepic.png'),
                 ),
               ),
             ),

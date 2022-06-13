@@ -1,52 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../constant.dart';
-import '../../models/user_model.dart';
-import '../../providers/auth_provider.dart';
 
 class Userscreen extends StatelessWidget {
   const Userscreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    AuthProvider authProvider = Provider.of<AuthProvider>(context);
-    UserModel user = authProvider.user;
-
     Widget header() {
       return Container(
         margin: const EdgeInsets.only(
           left: defaultMargin2,
           bottom: defaultMargin1,
-          top: defaultMargin2,
+          top: defaultMargin1,
+          right: defaultMargin2,
         ),
         child: Row(
           children: [
-            Image.network(
-              '${user.profilePhotoUrl}',
-              width: 20,
-            ),
+            Image.asset('assets/images/default_profilepic.png'),
             const SizedBox(
               width: 15,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '${user.name}',
-                  style: primaryText.copyWith(
-                    fontSize: 16,
-                    fontWeight: medium,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Anugrah Surya Putra',
+                    style: primaryText.copyWith(
+                      fontSize: 16,
+                      fontWeight: medium,
+                    ),
                   ),
-                ),
-                Text(
-                  '${user.email}',
-                  style: primaryText.copyWith(
-                    fontSize: 10,
-                    color: const Color(0xff808080),
+                  Text(
+                    'putra.183040095@mail.unpas.ac.id',
+                    style: primaryText.copyWith(
+                      fontSize: 10,
+                      color: const Color(0xff808080),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/', (route) => false);
+              },
+              child: const Icon(
+                Icons.exit_to_app_rounded,
+                color: redColor,
+                size: 30,
+              ),
             )
           ],
         ),
@@ -257,38 +262,6 @@ class Userscreen extends StatelessWidget {
       );
     }
 
-    Widget logoutButton(context) {
-      return Container(
-        height: 52,
-        width: double.infinity,
-        margin: const EdgeInsets.only(
-          top: 41,
-          left: defaultMargin1,
-          right: defaultMargin1,
-          bottom: defaultMargin1,
-        ),
-        child: TextButton(
-          onPressed: () {
-            Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-          },
-          style: TextButton.styleFrom(
-            backgroundColor: blueColor2,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
-          child: Text(
-            'Logout',
-            style: primaryText.copyWith(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: bold,
-            ),
-          ),
-        ),
-      );
-    }
-
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SafeArea(
@@ -298,7 +271,6 @@ class Userscreen extends StatelessWidget {
             akun(),
             general(),
             const Spacer(),
-            logoutButton(context),
           ],
         ),
       ),

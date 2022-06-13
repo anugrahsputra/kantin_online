@@ -20,24 +20,24 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
 
-    handleSignIn() async {
-      if (await authProvider.login(
-        email: emailController.text,
-        password: passwordController.text,
-      )) {
-        Navigator.pushNamed(context, '/home');
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            backgroundColor: blueColor2,
-            content: Text(
-              'Login Failed!',
-              textAlign: TextAlign.center,
-            ),
-          ),
-        );
-      }
-    }
+    // handleSignIn() async {
+    //   if (await authProvider.login(
+    //     email: emailController.text,
+    //     password: passwordController.text,
+    //   )) {
+    //     Navigator.pushNamed(context, '/home');
+    //   } else {
+    //     ScaffoldMessenger.of(context).showSnackBar(
+    //       const SnackBar(
+    //         backgroundColor: blueColor2,
+    //         content: Text(
+    //           'Login Failed!',
+    //           textAlign: TextAlign.center,
+    //         ),
+    //       ),
+    //     );
+    //   }
+    // }
 
     SafeArea logo() {
       return SafeArea(
@@ -216,7 +216,9 @@ class _SignInState extends State<SignIn> {
           bottom: defaultMargin1,
         ),
         child: TextButton(
-          onPressed: handleSignIn,
+          onPressed: () {
+            Navigator.pushNamed(context, '/home');
+          },
           style: TextButton.styleFrom(
             backgroundColor: blueColor2,
             shape: RoundedRectangleBorder(

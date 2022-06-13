@@ -40,7 +40,7 @@ class TrendCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network('${products.img}'),
+            Image.asset('${products.img}'),
             Padding(
               padding: const EdgeInsets.only(top: 8, left: 5),
               child: Text(
