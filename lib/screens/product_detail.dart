@@ -1,3 +1,4 @@
+import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
 import 'package:kantin_online/models/product_model.dart';
 import 'package:provider/provider.dart';
@@ -202,25 +203,44 @@ class ProductDetail extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             InkWell(
-              onTap: () {
+              onTap: () async {
                 cart.addCart(products);
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    Future.delayed(const Duration(seconds: 1), () {
-                      Navigator.of(context).pop();
+                // showDialog(
+                //   context: context,
+                //   builder: (BuildContext context) {
+                //     Future.delayed(const Duration(seconds: 1), () {
+                //       Navigator.of(context).pop();
+                //     });
+                //     return AlertDialog(
+                //       content: const Text(
+                //         'Berhasil Ditambahkan',
+                //         textAlign: TextAlign.center,
+                //       ),
+                //       contentTextStyle: primaryText.copyWith(
+                //         color: Colors.black,
+                //       ),
+                //     );
+                //   },
+                // );
+                showFlash(
+                    context: context,
+                    duration: const Duration(seconds: 1),
+                    builder: (context, controller) {
+                      return Flash.dialog(
+                        controller: controller,
+                        borderRadius: BorderRadius.circular(8),
+                        backgroundColor: blueColor1,
+                        alignment: Alignment.bottomCenter,
+                        margin: const EdgeInsets.only(bottom: 100),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Berhasil ditambahkan',
+                            style: primaryText.copyWith(color: Colors.white),
+                          ),
+                        ),
+                      );
                     });
-                    return AlertDialog(
-                      content: const Text(
-                        'Berhasil Ditambahkan',
-                        textAlign: TextAlign.center,
-                      ),
-                      contentTextStyle: primaryText.copyWith(
-                        color: Colors.black,
-                      ),
-                    );
-                  },
-                );
               },
               child: Container(
                 padding: const EdgeInsets.symmetric(
