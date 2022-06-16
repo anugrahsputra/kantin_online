@@ -60,7 +60,7 @@ class Cartscreen extends StatelessWidget {
               ),
             ),
             Text(
-              '',
+              cart.totalItems().toString(),
               style: primaryText.copyWith(
                 fontSize: 12,
                 fontWeight: semiBold,
