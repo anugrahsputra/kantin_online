@@ -27,27 +27,21 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  carousel_slider: ^4.0.0
   cupertino_icons: ^1.0.2
+  flash: ^2.0.3+2
   flutter:
     sdk: flutter
   flutter_svg: ^1.0.3
   google_fonts: ^2.3.1
   provider: ^6.0.2
-  carousel_slider: ^4.0.0
   smooth_page_indicator: ^1.0.0+2
 
 dev_dependencies:
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
-  flutter_native_splash: ^2.1.2+1
   flutter_lints: ^1.0.0
+  flutter_native_splash: ^2.1.2+1
   flutter_test:
     sdk: flutter
-
-  #  Splashscreen
 flutter_native_splash:
   android: true
   ios: true
