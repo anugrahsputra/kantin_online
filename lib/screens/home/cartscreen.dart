@@ -144,7 +144,37 @@ class Cartscreen extends StatelessWidget {
               .map(
                 (cart) => CartCard(cart: cart),
               )
-              .toList()
+              .toList(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              InkWell(
+                onTap: () {},
+                child: Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: defaultMargin2),
+                  width: 100,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical: 10,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: blueColor1,
+                  ),
+                  child: Text(
+                    'Checkout',
+                    style: primaryText.copyWith(
+                      fontWeight: medium,
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       );
     }
