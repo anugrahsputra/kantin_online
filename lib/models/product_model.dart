@@ -1,7 +1,9 @@
+import 'package:kantin_online/models/category_model.dart';
+
 class ProductModel {
   int? id;
   String? name;
-  String? category;
+  CategoryModel category;
   String? address;
   String? img;
   String? description;

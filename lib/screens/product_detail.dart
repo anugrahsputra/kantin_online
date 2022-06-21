@@ -130,7 +130,7 @@ class ProductDetail extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  products.category.toString(),
+                  products.category.name,
                   style: primaryText.copyWith(
                     fontSize: 12,
                   ),

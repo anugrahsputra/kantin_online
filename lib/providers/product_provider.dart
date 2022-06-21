@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../models/category_model.dart';
 import '../models/product_model.dart';
 
 class ProductProvider with ChangeNotifier {
@@ -7,7 +8,7 @@ class ProductProvider with ChangeNotifier {
     ProductModel(
       id: 1,
       name: 'Cireng Rujak',
-      category: 'Makanan Ringan',
+      category: CategoryModel(id: 1, name: 'Makanan Ringan'),
       address: 'Cimahi, Jawa Barat',
       totalStock: 100,
       stockLeft: 100,
@@ -18,7 +19,7 @@ class ProductProvider with ChangeNotifier {
     ProductModel(
       id: 2,
       name: 'Hazelnut Coffee',
-      category: 'Aneka Kopi',
+      category: CategoryModel(id: 2, name: 'Aneka Kopi'),
       address: 'Cimahi, Jawa Barat',
       totalStock: 100,
       stockLeft: 100,
@@ -29,7 +30,7 @@ class ProductProvider with ChangeNotifier {
     ProductModel(
       id: 3,
       name: 'Java Brown Sugar Coffee',
-      category: 'Aneka Kopi',
+      category: CategoryModel(id: 3, name: 'Aneka Kopi'),
       address: 'Cimahi, Jawa Barat',
       totalStock: 100,
       stockLeft: 100,
@@ -40,7 +41,7 @@ class ProductProvider with ChangeNotifier {
     ProductModel(
       id: 4,
       name: 'Cireng Mantap',
-      category: 'Makanan Ringan',
+      category: CategoryModel(id: 4, name: 'Makanan Ringan'),
       address: 'Cimahi, Jawa Barat',
       totalStock: 100,
       stockLeft: 100,
@@ -51,7 +52,7 @@ class ProductProvider with ChangeNotifier {
     ProductModel(
       id: 5,
       name: 'Cireng Rujak Mantap',
-      category: 'Makanan Ringan',
+      category: CategoryModel(id: 5, name: 'Makanan Ringan'),
       address: 'Cimahi, Jawa Barat',
       totalStock: 100,
       stockLeft: 100,
@@ -62,7 +63,7 @@ class ProductProvider with ChangeNotifier {
     ProductModel(
       id: 6,
       name: 'Cireng Mantap 2',
-      category: 'Makanan Ringan',
+      category: CategoryModel(id: 6, name: 'Makanan Ringan'),
       address: 'Cimahi, Jawa Barat',
       totalStock: 100,
       stockLeft: 100,
