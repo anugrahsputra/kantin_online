@@ -8,6 +8,8 @@ import 'constant.dart';
 import 'providers/cart_provider.dart';
 import 'providers/page_provider.dart';
 import 'providers/product_provider.dart';
+import 'screens/category/aneka_kopi.dart';
+import 'screens/category/makanan_ringan.dart';
 import 'screens/mainscreen.dart';
 import 'screens/newproducts_screen.dart';
 import 'screens/sign_in_screeen.dart';
@@ -55,7 +57,9 @@ class MyApp extends StatelessWidget {
           '/sign-up': (context) => SignUp(),
           '/home': (context) => const Mainscreen(),
           '/new-product': (context) => const NewProducts(),
-          '/trend-product': (context) => const TrendProducts()
+          '/trend-product': (context) => const TrendProducts(),
+          '/kopi': (context) => const AnekaKopi(),
+          '/makanan-ringan': (context) => const MakananRingan(),
         },
       ),
     );

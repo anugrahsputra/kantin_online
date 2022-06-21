@@ -36,12 +36,17 @@ class Category extends StatelessWidget {
         Expanded(
           child: Column(
             children: [
-              Container(
-                width: 54,
-                height: 54,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/icons/category_coffee.png'),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/kopi');
+                },
+                child: Container(
+                  width: 54,
+                  height: 54,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/icons/category_coffee.png'),
+                    ),
                   ),
                 ),
               ),
@@ -59,12 +64,17 @@ class Category extends StatelessWidget {
         Expanded(
           child: Column(
             children: [
-              Container(
-                width: 54,
-                height: 54,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/icons/category_snacks.png'),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/makanan-ringan');
+                },
+                child: Container(
+                  width: 54,
+                  height: 54,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/icons/category_snacks.png'),
+                    ),
                   ),
                 ),
               ),

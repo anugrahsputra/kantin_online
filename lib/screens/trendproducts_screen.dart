@@ -73,23 +73,24 @@ class TrendProducts extends StatelessWidget {
       // ignore: sized_box_for_whitespace
       return Container(
         height: MediaQuery.of(context).size.height,
-        child: GridView.builder(
+        child: GridView(
           padding: const EdgeInsets.only(
             top: 15,
             left: defaultMargin1,
             right: defaultMargin1,
           ),
-          physics: const NeverScrollableScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            mainAxisSpacing: 32,
-            crossAxisSpacing: 24,
-            childAspectRatio: 6 / 7,
+            childAspectRatio: 0.8,
+            crossAxisSpacing: defaultMargin1,
+            mainAxisSpacing: defaultMargin1,
           ),
-          itemBuilder: (context, index) => TrendCard(
-            products: productProvider.products[index],
-          ),
-          itemCount: productProvider.products.length,
+          children: productProvider.products
+              .map((product) => TrendCard(
+                    products: product,
+                  ))
+              .toList(),
         ),
       );
     }

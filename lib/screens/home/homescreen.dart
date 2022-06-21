@@ -126,12 +126,11 @@ class Homescreen extends StatelessWidget {
                 width: defaultMargin2,
               ),
               Row(
-                children: productProvider.products
-                    .map(
-                      (products) => TerlarisCard(products: products),
-                    )
-                    .toList(),
-              ),
+                  children: productProvider.products.map((e) {
+                return TerlarisCard(
+                  products: e,
+                );
+              }).toList()),
             ],
           ),
         ),

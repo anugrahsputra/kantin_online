@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:kantin_online/models/cart_model.dart';
-
 import 'package:provider/provider.dart';
 
 import '../constant.dart';
+import '../models/cart_model.dart';
 import '../providers/cart_provider.dart';
 
 class CartCard extends StatelessWidget {
@@ -73,7 +72,7 @@ class CartCard extends StatelessWidget {
                             ),
                           ),
                           TextSpan(
-                            text: cart.products.category,
+                            text: cart.products.category.name.toString(),
                             style: primaryText.copyWith(
                               fontSize: 10,
                               fontWeight: medium,

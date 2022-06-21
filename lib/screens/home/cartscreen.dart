@@ -153,13 +153,27 @@ class Cartscreen extends StatelessWidget {
                 child: Container(
                   margin:
                       const EdgeInsets.symmetric(horizontal: defaultMargin2),
-                  width: 100,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 15,
                     vertical: 10,
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: blueColor2,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.25),
+                        blurRadius: 4,
+                        offset: const Offset(1, 0),
+                      ),
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.25),
+                        blurRadius: 4,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
                     color: blueColor1,
                   ),
                   child: Text(
