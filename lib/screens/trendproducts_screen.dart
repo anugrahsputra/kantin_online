@@ -79,7 +79,7 @@ class TrendProducts extends StatelessWidget {
             left: defaultMargin1,
             right: defaultMargin1,
           ),
-          physics: const BouncingScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 0.8,
