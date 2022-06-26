@@ -6,6 +6,7 @@ import 'package:kantin_online/constant.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/auth_provider.dart';
+import '../widget/loading.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -31,6 +32,9 @@ class _SignUpState extends State<SignUp> {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
 
     handleSignUp() async {
+      setState(() {
+        isLoading = true;
+      });
       if (await authProvider.register(
         name: nameController.text,
         username: usernameController.text,
@@ -50,6 +54,9 @@ class _SignUpState extends State<SignUp> {
           ),
         );
       }
+      setState(() {
+        isLoading = false;
+      });
     }
 
     SafeArea logo() {
@@ -142,7 +149,7 @@ class _SignUpState extends State<SignUp> {
         margin: const EdgeInsets.only(
           left: defaultMargin1,
           right: defaultMargin1,
-          top: 28,
+          top: 15,
         ),
         padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 16),
         height: 49,
@@ -314,9 +321,7 @@ class _SignUpState extends State<SignUp> {
           bottom: defaultMargin1,
         ),
         child: TextButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/home');
-          },
+          onPressed: handleSignUp,
           style: TextButton.styleFrom(
             backgroundColor: blueColor2,
             shape: RoundedRectangleBorder(
@@ -348,7 +353,7 @@ class _SignUpState extends State<SignUp> {
           passwordInput(),
           googleSignIn(),
           SizedBox(height: height * 0.10),
-          signInButton(context),
+          isLoading ? const LoadingButton() : signInButton(context),
         ],
       ),
     );

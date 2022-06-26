@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kantin_online/providers/auth_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../constant.dart';
 
@@ -7,6 +9,8 @@ class Userscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+
     Widget header() {
       return Container(
         margin: const EdgeInsets.only(
@@ -17,7 +21,12 @@ class Userscreen extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Image.asset('assets/images/default_profilepic.png'),
+            CircleAvatar(
+              radius: 18,
+              backgroundImage: NetworkImage(
+                authProvider.user.profilePhotoUrl ?? '',
+              ),
+            ),
             const SizedBox(
               width: 15,
             ),
@@ -26,14 +35,14 @@ class Userscreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Anugrah Surya Putra',
+                    authProvider.user.name ?? '',
                     style: primaryText.copyWith(
                       fontSize: 16,
                       fontWeight: medium,
                     ),
                   ),
                   Text(
-                    'putra.183040095@mail.unpas.ac.id',
+                    authProvider.user.email ?? '',
                     style: primaryText.copyWith(
                       fontSize: 10,
                       color: const Color(0xff808080),

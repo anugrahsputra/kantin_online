@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kantin_online/providers/auth_provider.dart';
+import 'package:kantin_online/widget/loading.dart';
 import 'package:provider/provider.dart';
 
 import '../constant.dart';
@@ -16,28 +17,39 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   TextEditingController emailController = TextEditingController(text: '');
   TextEditingController passwordController = TextEditingController(text: '');
+
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
 
-    // handleSignIn() async {
-    //   if (await authProvider.login(
-    //     email: emailController.text,
-    //     password: passwordController.text,
-    //   )) {
-    //     Navigator.pushNamed(context, '/home');
-    //   } else {
-    //     ScaffoldMessenger.of(context).showSnackBar(
-    //       const SnackBar(
-    //         backgroundColor: blueColor2,
-    //         content: Text(
-    //           'Login Failed!',
-    //           textAlign: TextAlign.center,
-    //         ),
-    //       ),
-    //     );
-    //   }
-    // }
+    handleSignIn() async {
+      setState(() {
+        isLoading = true;
+      });
+
+      if (await authProvider.login(
+        email: emailController.text,
+        password: passwordController.text,
+      )) {
+        Navigator.pushNamed(context, '/home');
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            backgroundColor: blueColor2,
+            content: Text(
+              'Cek kembali email dan password mu',
+              textAlign: TextAlign.center,
+            ),
+          ),
+        );
+      }
+
+      setState(() {
+        isLoading = false;
+      });
+    }
 
     SafeArea logo() {
       return SafeArea(
@@ -216,9 +228,7 @@ class _SignInState extends State<SignIn> {
           bottom: defaultMargin1,
         ),
         child: TextButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/home');
-          },
+          onPressed: handleSignIn,
           style: TextButton.styleFrom(
             backgroundColor: blueColor2,
             shape: RoundedRectangleBorder(
@@ -247,7 +257,7 @@ class _SignInState extends State<SignIn> {
           passwordInput(),
           googleSignIn(),
           SizedBox(height: MediaQuery.of(context).size.height * 0.11),
-          signInButton(context),
+          isLoading ? const LoadingButton() : signInButton(context),
         ],
       ),
     );

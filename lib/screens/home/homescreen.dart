@@ -1,6 +1,7 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:flutter/material.dart';
+import 'package:kantin_online/providers/auth_provider.dart';
 import 'package:kantin_online/providers/product_provider.dart';
 import 'package:kantin_online/widget/terbaru_card.dart';
 import 'package:kantin_online/widget/terlaris_card.dart';
@@ -17,6 +18,7 @@ class Homescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ProductProvider productProvider = Provider.of<ProductProvider>(context);
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
 
     Widget header() {
       return Container(
@@ -36,7 +38,7 @@ class Homescreen extends StatelessWidget {
                     style: primaryText.copyWith(),
                   ),
                   Text(
-                    'Anugrah Surya Putra',
+                    authProvider.user.name ?? '',
                     style: primaryText.copyWith(
                       fontSize: 14,
                       fontWeight: bold,
@@ -48,10 +50,10 @@ class Homescreen extends StatelessWidget {
             Container(
               width: 32,
               height: 32,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: AssetImage('assets/images/default_profilepic.png'),
+              child: CircleAvatar(
+                radius: 16,
+                backgroundImage: NetworkImage(
+                  authProvider.user.profilePhotoUrl ?? '',
                 ),
               ),
             ),
